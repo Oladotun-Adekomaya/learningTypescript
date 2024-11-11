@@ -4,6 +4,9 @@ let company: string = 'fuck you';
 let x: any = 'hello'
 let isPublished: boolean = true 
 
+
+// console.log('ID:',id);
+
 // Arrays
 let ids: number[] = [1,2,3,4,5]
 let arr: any[] = [ 1, true, 'Hello']
@@ -20,9 +23,34 @@ employee =[
     [3, 'doe'],
 ]
 
+// Unions - if you want a variable to be able to hold more than one type
+let pid: string | number
+
+pid = '22'
+pid = 'you'
+
+//Enum - Enum lets us define a set of named constants either numeric or string
+enum direction1{
+    Up,
+    Down,
+    Left,
+    Right,
+}
+
+enum direction2{
+    Up = 'Up',
+    Down = 'Down',
+    Left = 'Left',
+    Right = 'Right',
+}
 
 
-console.log('ID:',id);
+// console.log(direction1);
+// console.log(direction2);
+
+
+
+
 
 
 
