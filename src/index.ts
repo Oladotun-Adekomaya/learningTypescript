@@ -1,3 +1,17 @@
+
+// to watch a typescript file, use; 'tsc --watch <filename>' in the terminal
+
+// to watch all typescript files, use; 'tsc --watch' in the terminal
+
+// to setup a configutation file, use; 'tsc --init' int the terminal
+
+// The command 'tsc <filename>' compiles a typescript file to javascript
+
+// The command 'tsc' compiles all typescript file to javascript, and to run a typescript file,
+// it first has to be compiled to a javascript file. 
+
+
+
 // Primitive Types
 let id: number = 5;
 let company: string = 'fuck you';
@@ -49,26 +63,103 @@ enum direction2{
 // console.log(direction2);
 
 
+// Objects
+type User = {
+    id: number
+    name: string
+}
 
 
+const user: User = {
+    id: 1,
+    name: 'john'
+}
 
 
+// Type Assertion
+let cid: any = 1
+// let customerId = <number>cid  // This is the first way to perform type assertion
+
+let customerId = cid as number // This is the second way to do this
+
+// Functions
+
+function addNum(x: number, y: number): number {
+    return x + y
+}
+
+function log(message: string | number): void{ // this is to not specify any return value
+    console.log(message);    
+}
+
+log(1)
+
+// Interfaces - 
+interface Shape {
+    name: string,
+    color: string,
+    area():number
+}
+
+function calculateArea(shape:Shape){
+    console.log(`Calculating the area of shape ${shape.name}`);
+    console.log(`The shape area is: ${shape.area()}`);
+}
+
+const circle = {
+    name: 'circle',
+    color: 'red',
+    area(){
+        return Math.PI * 2 * 2;
+    }
+}
+
+calculateArea(circle)
 
 
+interface UserInterface{
+    readonly id: number // This makes it so that the value of a property can't be reassigned. It can only be read
+    name: string
+    age?: number // The '?' is to make the age property optional
+}
 
 
+const user1: UserInterface = {
+    id: 1,
+    name: 'john'
+}
 
 
+interface MathFunc {
+    (x: number, y: number): number
+}
 
+const add: MathFunc = (x: number, y: number): number => x + y
+const sub: MathFunc = (x: number, y: number): number => x - y
 
+// There are some differences btw types and interfaces for instance a type can be used with primitives and unions
+// Interfaces are mostly used with objects
 
-// to watch a typescript file, use; 'tsc --watch <filename>' in the terminal
+type Point = number | string
 
-// to watch all typescript files, use; 'tsc --watch' in the terminal
+const p1: Point = 1
 
-// to setup a configutation file, use; 'tsc --init' int the terminal
+// Classes
+class Person{
+    id: number // adding the 'private' e.g 'private id: number' keyword before a property in a class makes it only accessible in the class. it can't be modified or accessed outside the class
+    name: string       // adding the 'protected' keyword makes it only accessible by the class and any class that is extended from the class(i.e it's sub-classes)
 
-// The command 'tsc <filename>' compiles a typescript file to javascript
+    constructor(id: number, name: string){
+        this.id = id
+        this.name = name      
+    }
+    
+    register(){
+        return `${this.name} is now registered`
+    }
+}
 
-// The command 'tsc' compiles all typescript file to javascript, and to run a typescript file,
-// it first has to be compiled to a javascript file. 
+const mike = new Person(1, 'Timaya')
+const purry = new Person(2, 'Purr')
+
+console.log(mike, purry.register());

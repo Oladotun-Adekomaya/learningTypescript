@@ -1,4 +1,10 @@
 "use strict";
+// to watch a typescript file, use; 'tsc --watch <filename>' in the terminal
+// to watch all typescript files, use; 'tsc --watch' in the terminal
+// to setup a configutation file, use; 'tsc --init' int the terminal
+// The command 'tsc <filename>' compiles a typescript file to javascript
+// The command 'tsc' compiles all typescript file to javascript, and to run a typescript file,
+// it first has to be compiled to a javascript file. 
 // Primitive Types
 let id = 5;
 let company = 'fuck you';
@@ -36,11 +42,51 @@ var direction2;
     direction2["Left"] = "Left";
     direction2["Right"] = "Right";
 })(direction2 || (direction2 = {}));
-// console.log(direction1);
-// console.log(direction2);
-// to watch a typescript file, use; 'tsc --watch <filename>' in the terminal
-// to watch all typescript files, use; 'tsc --watch' in the terminal
-// to setup a configutation file, use; 'tsc --init' int the terminal
-// The command 'tsc <filename>' compiles a typescript file to javascript
-// The command 'tsc' compiles all typescript file to javascript, and to run a typescript file,
-// it first has to be compiled to a javascript file. 
+const user = {
+    id: 1,
+    name: 'john'
+};
+// Type Assertion
+let cid = 1;
+// let customerId = <number>cid  // This is the first way to perform type assertion
+let customerId = cid; // This is the second way to do this
+// Functions
+function addNum(x, y) {
+    return x + y;
+}
+function log(message) {
+    console.log(message);
+}
+log(1);
+function calculateArea(shape) {
+    console.log(`Calculating the area of shape ${shape.name}`);
+    console.log(`The shape area is: ${shape.area()}`);
+}
+const circle = {
+    name: 'circle',
+    color: 'red',
+    area() {
+        return Math.PI * 2 * 2;
+    }
+};
+calculateArea(circle);
+const user1 = {
+    id: 1,
+    name: 'john'
+};
+const add = (x, y) => x + y;
+const sub = (x, y) => x - y;
+const p1 = 1;
+// Classes
+class Person {
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+    }
+    register() {
+        return `${this.name} is now registered`;
+    }
+}
+const mike = new Person(1, 'Timaya');
+const purry = new Person(2, 'Purr');
+console.log(mike, purry.register());
