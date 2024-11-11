@@ -1,4 +1,26 @@
+// Primitive Types
 let id: number = 5;
+let company: string = 'fuck you';
+let x: any = 'hello'
+let isPublished: boolean = true 
+
+// Arrays
+let ids: number[] = [1,2,3,4,5]
+let arr: any[] = [ 1, true, 'Hello']
+
+//Tuple
+let person: [number, string, boolean] = [1,'fuck', true]
+
+//Tuple Array
+let employee: [number, string][];
+
+employee =[
+    [1, 'john'],
+    [2, 'baby'],
+    [3, 'doe'],
+]
+
+
 
 console.log('ID:',id);
 
