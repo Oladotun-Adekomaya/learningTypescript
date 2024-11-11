@@ -57,7 +57,6 @@ function addNum(x, y) {
 function log(message) {
     console.log(message);
 }
-log(1);
 function calculateArea(shape) {
     console.log(`Calculating the area of shape ${shape.name}`);
     console.log(`The shape area is: ${shape.area()}`);
@@ -69,7 +68,6 @@ const circle = {
         return Math.PI * 2 * 2;
     }
 };
-calculateArea(circle);
 const user1 = {
     id: 1,
     name: 'john'
@@ -77,7 +75,6 @@ const user1 = {
 const add = (x, y) => x + y;
 const sub = (x, y) => x - y;
 const p1 = 1;
-// Classes
 class Person {
     constructor(id, name) {
         this.id = id;
@@ -89,4 +86,20 @@ class Person {
 }
 const mike = new Person(1, 'Timaya');
 const purry = new Person(2, 'Purr');
-console.log(mike, purry.register());
+// Extending Classes - Subclasses
+class Employee extends Person {
+    constructor(id, name, postion) {
+        super(id, name); // This is basically initailizing the properties from Person class
+        this.position = postion;
+    }
+}
+const emp = new Employee(3, 'Shawn', 'Developer');
+// console.log(emp.name);
+// console.log(emp.register());
+// Generics
+function getArray(items) {
+    return new Array().concat(items);
+}
+let numArray = getArray([1, 2, 3, 4]);
+let strArray = getArray(['brad', 'John', 'Jill']);
+strArray.push();

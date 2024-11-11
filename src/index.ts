@@ -92,7 +92,7 @@ function log(message: string | number): void{ // this is to not specify any retu
     console.log(message);    
 }
 
-log(1)
+// log(1)
 
 // Interfaces - 
 interface Shape {
@@ -114,11 +114,11 @@ const circle = {
     }
 }
 
-calculateArea(circle)
+// calculateArea(circle)
 
 
 interface UserInterface{
-    readonly id: number // This makes it so that the value of a property can't be reassigned. It can only be read
+    id: number // adding a readonly before a property(e.g 'readonly id: number') - This makes it so that the value of a property can't be reassigned. It can only be read
     name: string
     age?: number // The '?' is to make the age property optional
 }
@@ -145,7 +145,15 @@ type Point = number | string
 const p1: Point = 1
 
 // Classes
-class Person{
+interface PersonInterface{
+    id: number 
+    name: string
+    register(): string
+}
+
+
+
+class Person implements PersonInterface{
     id: number // adding the 'private' e.g 'private id: number' keyword before a property in a class makes it only accessible in the class. it can't be modified or accessed outside the class
     name: string       // adding the 'protected' keyword makes it only accessible by the class and any class that is extended from the class(i.e it's sub-classes)
 
@@ -162,4 +170,29 @@ class Person{
 const mike = new Person(1, 'Timaya')
 const purry = new Person(2, 'Purr')
 
-console.log(mike, purry.register());
+// Extending Classes - Subclasses
+
+class Employee extends Person {
+  position: string
+  
+  constructor(id: number, name: string, postion: string){
+    super(id,name) // This is basically initailizing the properties from Person class
+    this.position = postion
+  }
+}
+
+const emp = new Employee(3, 'Shawn', 'Developer')
+
+// console.log(emp.name);
+// console.log(emp.register());
+
+
+// Generics
+function getArray<T>(items: T[]): T[]{
+    return new Array().concat(items)
+}
+
+let numArray = getArray<number>([1,2,3,4])
+let strArray = getArray<string>([ 'brad', 'John', 'Jill'])
+
+strArray.push()
